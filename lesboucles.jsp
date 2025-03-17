@@ -87,13 +87,13 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;***</br>&nbsp;****</br>*****</p>
 <p>Correction: <br>
     <% for (int i = 0; i <= cpt; i++) { %>
-        <% for (int j = 0; j <= cpt - i; j++) { %>
-            <%= "&nbsp;" %>
-        <% } %>
-        <% for (int j = 0; j <= i + 1; j++) { %>
-            <%= "*" %>
-         <% } %>
-        <br>
+    <% for (int j = 0; j <= cpt - i; j++) { %>
+        <%= "&nbsp;" %>
+    <% } %>
+    <% for (int j = 0; j <= i + 1; j++) { %>
+        <%= "*" %>
+    <% } %>
+    <br>
     <% } %>
 </p>
 
