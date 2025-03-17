@@ -110,6 +110,7 @@
         <% } %>
         <br>
     <% } %>
+        <br>
     <% for (int i = cpt - 1; i >= 1; i--) { %>
         <% for (int j = 1; j <= cpt - i; j++) { %>
             <%= "&nbsp;" %>
@@ -127,7 +128,7 @@
 <h2>Exercice 7 : La table de multiplication</h2>
 <p>Ecrire le code afin de créser une table de multiplication</p>
 <p>Correction: <br>
-    <% for (int i = 1; i <= 10; i++) { %>
+    <% for (int i = 1; i <= 5; i++) { %>
         <p><%= cpt %> x <%= i %> = <%= cpt * i %></p>
     <% } %>
 </p>
