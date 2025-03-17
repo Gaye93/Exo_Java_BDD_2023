@@ -1,10 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>Les chaines</title>
+    <title>Les chaines</title>
 </head>
 <body bgcolor=white>
-<h1>Exercices sur les chaines de charactères</h1>
+<h1>Exercices sur les chaines de caractères</h1>
 <form action="#" method="post">
     <p>Saisir une chaine (Du texte avec 6 caractères minimum) : <input type="text" id="inputValeur" name="chaine"></p>
     <p><input type="submit" value="Afficher"></p>
@@ -12,31 +12,33 @@
 
 <%-- Récupération des valeurs --%>
 <% String chaine = request.getParameter("chaine"); %>
-    
-<% if (chaine != null) { %>
 
-<%-- Obtention de la longueur de la chaîne --%>
-<% int longueurChaine = chaine.length(); %>
-<p>La longueur de votre chaîne est de <%= longueurChaine %> caractères</p>
+<% if (chaine != null && chaine.length() >= 6) { %>
 
-<%-- Extraction du 3° caractère dans votre chaine --%>
-<% char caractereExtrait = chaine.charAt(2); %>
-<p>Le 3° caractère de votre chaine est la lettre <%= caractereExtrait %></p>
+    <%-- Obtention de la longueur de la chaîne --%>
+    <% int longueurChaine = chaine.length(); %>
+    <p>La longueur de votre chaîne est de <%= longueurChaine %> caractères</p>
 
-<%-- Obtention d'une sous-chaîne --%>
-<% String sousChaine = chaine.substring(2, 6); %>
-<p>Une sous chaine de votre texte : <%= sousChaine %></p>
+    <%-- Extraction du 3° caractère dans votre chaine --%>
+    <% char caractereExtrait = chaine.charAt(2); %>
+    <p>Le 3° caractère de votre chaine est la lettre <%= caractereExtrait %></p>
 
-<%-- Recherche de la lettre "e" --%>
-<% char recherche = 'e'; 
-   int position = chaine.indexOf(recherche); %>
-<p>Votre premier "e" est en : <%= position %></p>
+    <%-- Obtention d'une sous-chaîne --%>
+    <% String sousChaine = chaine.substring(2, 6); %>
+    <p>Une sous chaine de votre texte : <%= sousChaine %></p>
+
+    <%-- Recherche de la lettre "e" --%>
+    <% char recherche = 'e'; 
+       int position = chaine.indexOf(recherche); %>
+    <p>Votre premier "e" est en : <%= position %></p>
+
+<% } else if (chaine != null) { %>
+    <p>La chaîne doit contenir au moins 6 caractères.</p>
+<% } else { %>
+    <p>Aucune chaîne n'a été saisie.</p>
+<% } %>
 
 <h2>Exercice 1 : Nombre de 'e' dans la chaîne</h2>
-<form action="#" method="post">
-    <p>Saisir une chaîne : <input type="text" name="chaine"></p>
-    <p><input type="submit" value="Analyser"></p>
-</form>
 <%
     if (chaine != null && !chaine.isEmpty()) {
         int countE = 0;
@@ -85,15 +87,23 @@
 %>
 <p>Résultat : <%= resultat.toString() %></p>
 <%
+    } else {
+%>
+<p>Aucune chaîne n'a été saisie.</p>
+<%
     }
 %>
 
-<h2>Exercice 5 : Texte en verlant</h2>
+<h2>Exercice 5 : Texte en verlan</h2>
 <%
     if (chaine != null && !chaine.isEmpty()) {
         StringBuilder reversed = new StringBuilder(chaine).reverse();
 %>
 <p>Texte inversé : <%= reversed.toString() %></p>
+<%
+    } else {
+%>
+<p>Aucune chaîne n'a été saisie.</p>
 <%
     }
 %>
